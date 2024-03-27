@@ -1,3 +1,3 @@
 ﻿using BasicCsharp.Lessons;
 
-Arrays.Run();
+Loops.Run();
