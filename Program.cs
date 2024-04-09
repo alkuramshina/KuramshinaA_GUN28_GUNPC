@@ -1,3 +1,3 @@
-﻿using BasicCsharp.Lessons.Classes;
+﻿using BasicCsharp.Lessons.Memory;
 
-Classes.Run();
+Memory.Run();

@@ -1,4 +1,6 @@
-﻿namespace BasicCsharp.Lessons.Classes;
+﻿using BasicCsharp.Lessons.Memory;
+
+namespace BasicCsharp.Lessons.Classes;
 
 public class Weapon
 {
@@ -10,23 +12,17 @@ public class Weapon
     public Weapon(string name, float minDamage, float maxDamage)
         : this(name)
     {
-        SetDamageParams(maxDamage, minDamage);
+        SetDamageParams(minDamage, maxDamage);
     }
 
     public Weapon(float minDamage, float maxDamage)
         : this("Unnamed weapon")
     {
-        SetDamageParams(maxDamage, minDamage);
+        SetDamageParams(minDamage, maxDamage);
     }
 
     private void SetDamageParams(float minDamage, float maxDamage)
     {
-        if (minDamage > maxDamage)
-        {
-            (minDamage, maxDamage) = (maxDamage, minDamage);
-            Console.WriteLine($"Данные для урона {Name} введены некорректно и были поменяны местами.");
-        }
-
         if (minDamage < 1f)
         {
             minDamage = 1f;
@@ -39,13 +35,11 @@ public class Weapon
             Console.WriteLine($"Максимальное значение установлено 10f.");
         }
 
-        MaxDamage = maxDamage;
-        MinDamage = minDamage;
+        Damage = new Interval(minDamage, maxDamage);
     }
 
-    public float GetDamage() => (MinDamage + MaxDamage) / 2;
+    public float GetDamage() => Damage.Average();
 
     public string Name { get; private set; }
-    public float MinDamage { get; private set; }
-    public float MaxDamage { get; private set; }
+    private Interval Damage { get; set; }
 }

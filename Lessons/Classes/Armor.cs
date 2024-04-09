@@ -21,7 +21,7 @@ public abstract class ArmorItem
     public float Armor
     {
         get => ArmorValue;
-        set
+        init
         {
             ArmorValue = Math.Clamp(value, 0f, 10f);
             if (value is < 0f or > 10f)
