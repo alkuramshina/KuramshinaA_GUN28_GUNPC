@@ -1,3 +1,3 @@
-﻿using BasicCsharp.Lessons;
+﻿using BasicCsharp.Lessons.GamePrototype;
 
-Strings.Run();
+Game.Run();
