@@ -16,13 +16,15 @@ public class Casino : IGame, IHasBank
     public uint CurrentBid { get; private set; }
 
     public void Bid(uint sum) => CurrentBid = Math.Clamp(sum, 1, Bank);
+
     public void Win(uint sum) => Bank += sum;
+
     public bool Loose()
     {
         Bank = Math.Clamp(Bank - CurrentBid, 0, Bank);
         return Bank == 0;
     }
-
+    
     private const uint StartingCasinoBank = 200;
     private const uint StartingPlayerBank = 10;
     

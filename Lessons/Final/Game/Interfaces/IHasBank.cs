@@ -8,4 +8,6 @@ public interface IHasBank
     public void Bid(uint sum);
     public void Win(uint sum);
     public bool Loose();
+    
+    public const uint MaxBank = 200;
 }

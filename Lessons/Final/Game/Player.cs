@@ -10,7 +10,19 @@ public class Player : IHasBank
 
     public void Bid(uint sum) => CurrentBid = Math.Clamp(sum, 1, Bank);
 
-    public void Win(uint sum) => Bank += sum;
+    public void Win(uint sum)
+    {
+        if (Bank + sum > IHasBank.MaxBank)
+        {
+            Console.WriteLine("You wasted half of your bank money in casino’s bar.");
+            Bank = IHasBank.MaxBank / 2;
+        }
+        else
+        {
+            Bank += sum;
+        }
+    }
+
     public bool Loose()
     {
         Bank = Math.Clamp(Bank - CurrentBid, 0, Bank);
