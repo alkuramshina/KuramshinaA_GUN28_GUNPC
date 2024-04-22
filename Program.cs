@@ -1,3 +1,3 @@
-﻿using BasicCsharp.Lessons.GamePrototype;
+﻿using BasicCsharp.Lessons.Final;
 
-Game.Run();
+CasinoGame.Run();
